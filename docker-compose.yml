@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=mysql  # Använd tjänstens namn här, inte localhost
+      - DB_USER=root
+      - DB_PASSWORD=mysql123
+      - DB_NAME=bank
+    depends_on:
+      - mysql  # Se till att backend väntar på att mysql-tjänsten ska vara igång
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql123
+      MYSQL_DATABASE: bank
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persistent datalagring för MySQL
+
+volumes:
+  mysql_data:  # Definiera volymen för att behålla databasens data mellan omstarter
