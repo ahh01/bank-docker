@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+ const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+ console.log("BASE_URL:", BASE_URL);
+
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -12,8 +15,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        "http://ec2-16-170-166-17.eu-north-1.compute.amazonaws.com/sessions",
+      const response = await fetch(`${BASE_URL}/sessions`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

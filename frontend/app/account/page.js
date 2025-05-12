@@ -4,6 +4,9 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import React from "react";
 
+ const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+  console.log("BASE_URL:", BASE_URL);
+
 export default function Account() {
   const [balance, setBalance] = useState(0);
   const [amount, setAmount] = useState("");
@@ -24,8 +27,7 @@ export default function Account() {
       setToken(storedToken);
 
       try {
-        const response = await fetch(
-          "http://ec2-16-170-166-17.eu-north-1.compute.amazonaws.com/me/accounts",
+        const response = await fetch(`${BASE_URL}/me/accounts`,
           {
             method: "POST",
             headers: {
@@ -62,8 +64,7 @@ export default function Account() {
     }
 
     try {
-      const response = await fetch(
-        "http://ec2-16-170-166-17.eu-north-1.compute.amazonaws.com/me/accounts/transactions",
+      const response = await fetch(`${BASE_URL}/me/accounts/transactions`,
         {
           method: "POST",
           headers: {
