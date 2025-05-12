@@ -63,7 +63,7 @@ export default function Account() {
 
     try {
       const response = await fetch(
-        "http://localhost:3001/me/accounts/transactions",
+        "http://ec2-16-170-166-17.eu-north-1.compute.amazonaws.com/me/accounts/transactions",
         {
           method: "POST",
           headers: {

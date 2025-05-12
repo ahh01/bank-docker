@@ -29,6 +29,7 @@ services:
       MYSQL_DATABASE: bank
     volumes:
       - mysql_data:/var/lib/mysql  # Persistent datalagring för MySQL
+      - ./backup.sql:/docker-entrypoint-initdb.d/backup.sql
 
 volumes:
   mysql_data:  # Definiera volymen för att behålla databasens data mellan omstarter
