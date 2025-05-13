@@ -5,6 +5,7 @@ npm-debug.log
 .next
 
 # Lägg till dessa rader
+.git
 .env
 dist
 coverage
