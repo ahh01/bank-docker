@@ -1,5 +1,7 @@
 node_modules
 npm-debug.log
+.nextnode_modules
+npm-debug.log
 .next
 
 # Lägg till dessa rader
