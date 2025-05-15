@@ -14,6 +14,8 @@ export default function NewUser() {
   const handleRegister = async (e) => {
     e.preventDefault();
 
+    console.log("API URL:", process.env.NEXT_PUBLIC_API_URL);
+
     if (!username || !password) {
       alert("Användarnamn och lösenord får inte vara tomma.");
       return;
