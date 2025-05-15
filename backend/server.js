@@ -15,7 +15,15 @@ const app = express();
 const port = 3001;
 
 // Middleware
-app.use(cors({ origin: ["http://localhost:3000"], credentials: true }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "http://ec2-13-49-5-93.eu-north-1.compute.amazonaws.com:3000",
+    ],
+    credentials: true,
+  })
+);
 app.use(bodyParser.json());
 
 // Sessions/OTP lagras i minnet (kan flyttas till databas om du vill)

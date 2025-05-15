@@ -1,3 +1,0 @@
-Uppdaterad
-
-Detta projekt är en enkel backend för en banksajt, byggd med Node.js, Express och MySQL. All data om användare, konton och transaktioner sparas i en MySQL-databas istället för i arrayer. Användare kan skapas och logga in för att få en engångstoken (OTP), sedan kan de hämta sina kontouppgifter och göra transaktioner. Projektet är avsett att köras lokalt och demonstrerar grundläggande backend-funktionalitet för en banksajt med databasintegration.
